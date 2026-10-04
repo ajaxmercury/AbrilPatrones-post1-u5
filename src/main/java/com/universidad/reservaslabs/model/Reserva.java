@@ -17,6 +17,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "reservas")
@@ -41,9 +42,11 @@ public class Reserva {
     private String correoSolicitante;
 
     @NotNull(message = "La fecha de inicio es obligatoria")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime inicio;
 
     @NotNull(message = "La fecha de fin es obligatoria")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime fin;
 
     private String motivo;
